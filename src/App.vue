@@ -15,8 +15,18 @@ import axios from 'axios';
       }
     },
     mounted() {
-      this.getMovie()
+      this.getMovie();
+      axios.get(store.serieUrl).then((response) => {
+                store.series = response.data.results;
+                console.log(response.data.results)
+              
+            })
+
+
+
     },
+
+
     methods: {
       getMovie(){
 
