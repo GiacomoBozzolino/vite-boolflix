@@ -21,6 +21,7 @@ export default {
 <template lang="">
     <ul>
         <li>
+            <h2>FILM</h2>
             <!-- ciclo per i film -->
             <div v-for="(movie, index) in store.movies" :key="index">
                 <!-- recupero il file per generare le schede -->
@@ -29,6 +30,7 @@ export default {
 
         </li>
         <li>
+            <H2>SERIE</H2>
             <!-- ciclo per le serie -->
             <div v-for="(serie, index) in store.series" :key="index">
                 <!-- recupero il file per generare le schede -->

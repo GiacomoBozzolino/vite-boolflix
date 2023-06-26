@@ -16,34 +16,67 @@ import axios from 'axios';
     },
     mounted() {
       this.getMovie();
-      axios.get(store.serieUrl).then((response) => {
-                store.series = response.data.results;
-                console.log(response.data.results)
-              
-            })
+      
     },
 
 
     methods: {
-      search(){
-        store.myUrl= store.apiUrl
+      
+
+      // METODO DI CHIAMATA PER MOVIES
+      getMovie(){
+        // riprendo l'api principale
+
+        store.myUrl = store.apiUrl
+        store.mySecondUrl = store.serieUrl
+        // richiamo la funzione di ricerca
         if(store.searchText !== ''){
              store.myUrl += `&query=${store.searchText}`
-              console.log(store.searchText)
-              
+              console.log(store.searchText) 
           }
-      },
 
-      getMovie(){
-
-        this.search()
-
+        if(store.searchText !== ''){
+            store.mySecondUrl += `&query=${store.searchText}`
+            console.log(store.searchText) 
+        }
+        // eseguo la chiamata
         axios.get(store.myUrl).then((response) => {
                 store.movies = response.data.results;
+                console.log(response.data.results)    
+        });
+
+
+        axios.get(store.mySecondUrl).then((response) => {
+                store.series = response.data.results;
+                console.log(response.data.results)
+              
+            });
+      },
+
+
+
+      //CHIUSURA METODO DI CHIAMATA PER series
+      getSerie(){
+        // riprendo l'api principale
+        store.mySecondUrl = store.serieUrl
+        // richiamo la funzione di ricerca
+        if(store.searchText !== ''){
+             store.mySecondUrl += `&query=${store.searchText}`
+              console.log(store.searchText) 
+          }
+        // eseguo la chiamata
+        axios.get(store.mySecondUrl).then((response) => {
+                store.series = response.data.results;
                 console.log(response.data.results)
               
             })
       }
+
+
+
+
+
+
     },
     
   }
