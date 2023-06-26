@@ -23,23 +23,19 @@ import axios from 'axios';
     methods: {
       search(url){
         if(store.searchText !== ''){
-            return url += `&query=${store.searchText}`
-              console.log(store.searchText) 
-              console.log(url)
+             return url += `&query=${store.searchText}`
+            
           }
-          
+         
       },
       // METODO DI CHIAMATA PER MOVIES
       getMovie(){
-        store.myUrl = store.apiUrl
+        // store.myUrl = store.apiUrl
 
-        // if(store.searchText !== ''){
-        //      store.myUrl += `&query=${store.searchText}`
-        //       console.log(store.searchText) 
-        //   }
-        this.search(store.myUrl)
+       let searchUrl = this.search(store.apiUrl)
+        
 
-          axios.get(store.myUrl).then((response) => {
+          axios.get(searchUrl).then((response) => {
                 store.movies = response.data.results;
                 console.log(response.data.results)    
         });
