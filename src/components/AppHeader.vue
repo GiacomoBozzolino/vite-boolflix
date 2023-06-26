@@ -6,7 +6,8 @@ export default {
 
 <template lang="">
     <div>
-        header
+        <input type="text" id="search" placeholder=" search">
+        <button>Search</button>
     </div>
 </template>
 

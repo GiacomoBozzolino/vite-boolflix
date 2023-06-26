@@ -16,7 +16,7 @@ import axios from 'axios';
     },
     mounted() {
       axios.get(store.apiUrl).then((response) => {
-              store.apiUrlx = response.data.results;
+              store.movies = response.data.results;
               console.log(response.data.results)
             
           })
