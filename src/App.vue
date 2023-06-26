@@ -21,21 +21,22 @@ import axios from 'axios';
                 console.log(response.data.results)
               
             })
-
-
-
     },
 
 
     methods: {
-      getMovie(){
-
+      search(){
         store.myUrl= store.apiUrl
         if(store.searchText !== ''){
              store.myUrl += `&query=${store.searchText}`
               console.log(store.searchText)
               
           }
+      },
+
+      getMovie(){
+
+        this.search()
 
         axios.get(store.myUrl).then((response) => {
                 store.movies = response.data.results;

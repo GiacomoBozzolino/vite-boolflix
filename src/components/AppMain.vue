@@ -21,13 +21,17 @@ export default {
 <template lang="">
     <ul>
         <li>
+            <!-- ciclo per i film -->
             <div v-for="(movie, index) in store.movies" :key="index">
+                <!-- recupero il file per generare le schede -->
                 <AppMovieCard :mymovie= "movie"/>
             </div>
 
         </li>
         <li>
+            <!-- ciclo per le serie -->
             <div v-for="(serie, index) in store.series" :key="index">
+                <!-- recupero il file per generare le schede -->
                 <AppSeriesCard :myserie= "serie"/>
                 
              </div>
