@@ -28,7 +28,8 @@ export default {
         </li>
         <li>
             <div v-for="(serie, index) in store.series" :key="index">
-                <AppSeriesCard :myseries= "serie"/>
+                <AppSeriesCard :myserie= "serie"/>
+                
              </div>
         </li>
     </ul>

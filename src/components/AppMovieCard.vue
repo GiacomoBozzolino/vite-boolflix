@@ -33,8 +33,7 @@ export default {
                 <div>{{mymovie.original_title}}</div>
             </li>
             <li>
-                <lang-flag :iso="mymovie.original_language"/>
-                
+                <lang-flag :iso="mymovie.original_language"/>  
             </li>
             <li>
                 <div>{{mymovie.vote_average}}</div>  
