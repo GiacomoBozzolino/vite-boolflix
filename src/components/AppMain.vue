@@ -1,6 +1,11 @@
 <script>
+import AppMovieCard from './AppMovieCard.vue';
 import { store } from '../store';
 export default {
+
+    components:{
+        AppMovieCard,
+    },
     data() {
         return {
             store,
@@ -13,10 +18,10 @@ export default {
 
 <template lang="">
     <div v-for="(movie, index) in store.movies" :key="index">
-        <div>{{movie.original_title}}</div>
+        <AppMovieCard :mymovie= "movie"/>
         
     </div>
-    <div>ciao</div>
+    
 </template>
 
 <style lang="">
