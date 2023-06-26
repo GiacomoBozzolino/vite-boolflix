@@ -19,26 +19,31 @@ export default {
 </script>
 
 <template lang="">
-    <ul>
-        <li>
-            <h2>FILM</h2>
-            <!-- ciclo per i film -->
-            <div v-for="(movie, index) in store.movies" :key="index">
-                <!-- recupero il file per generare le schede -->
-                <AppMovieCard :mymovie= "movie"/>
-            </div>
+    <div>
+        <h2>MOVIES</h2>
+        <ul>
+            <li>
+                <!-- ciclo per i film -->
+                <div v-for="(movie, index) in store.movies" :key="index">
+                    <!-- recupero il file per generare le schede -->
+                    <AppMovieCard :mymovie= "movie"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>SERIES</h2>
+        <ul>
+            <li>
+                <div v-for="(serie, index) in store.series" :key="index">
+                    <!-- recupero il file per generare le schede -->
+                    <AppSeriesCard :myserie= "serie"/>
+                    
+                 </div>
+            </li>
+        </ul>
 
-        </li>
-        <li>
-            <H2>SERIE</H2>
-            <!-- ciclo per le serie -->
-            <div v-for="(serie, index) in store.series" :key="index">
-                <!-- recupero il file per generare le schede -->
-                <AppSeriesCard :myserie= "serie"/>
-                
-             </div>
-        </li>
-    </ul>
+    </div>
    
     
 </template>
