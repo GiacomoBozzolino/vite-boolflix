@@ -21,30 +21,38 @@ import axios from 'axios';
 
 
     methods: {
-      
-
+      search(url){
+        if(store.searchText !== ''){
+            return url += `&query=${store.searchText}`
+              console.log(store.searchText) 
+              console.log(url)
+          }
+          
+      },
       // METODO DI CHIAMATA PER MOVIES
       getMovie(){
-        // riprendo l'api principale
-
         store.myUrl = store.apiUrl
-        store.mySecondUrl = store.serieUrl
-        // richiamo la funzione di ricerca
-        if(store.searchText !== ''){
-             store.myUrl += `&query=${store.searchText}`
-              console.log(store.searchText) 
-          }
 
-        if(store.searchText !== ''){
-            store.mySecondUrl += `&query=${store.searchText}`
-            console.log(store.searchText) 
-        }
-        // eseguo la chiamata
-        axios.get(store.myUrl).then((response) => {
+        // if(store.searchText !== ''){
+        //      store.myUrl += `&query=${store.searchText}`
+        //       console.log(store.searchText) 
+        //   }
+        this.search(store.myUrl)
+
+          axios.get(store.myUrl).then((response) => {
                 store.movies = response.data.results;
                 console.log(response.data.results)    
         });
 
+
+
+        store.mySecondUrl = store.serieUrl
+        if(store.searchText !== ''){
+            store.mySecondUrl += `&query=${store.searchText}`
+            console.log(store.searchText) 
+        }
+       
+        
 
         axios.get(store.mySecondUrl).then((response) => {
                 store.series = response.data.results;

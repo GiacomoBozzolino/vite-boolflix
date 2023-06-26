@@ -33,7 +33,7 @@ export default {
             </li>
 
             <li>
-                {{myserie.original_language}}
+                <lang-flag :iso="myserie.original_language"/>  
             </li>
 
             <li>
