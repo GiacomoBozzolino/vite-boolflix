@@ -32,7 +32,7 @@ export default {
         <div class="text-center" >
             <!-- aggiungo un controllo se manca l'immagine -->
             <img v-if="myserie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w500/${myserie.poster_path}`" alt="">
-            <img v-else="myserie.poster_path === null" src="../assets/No-Image-Placeholder.svg.png" alt="">
+            <img id="placeholder" v-else="myserie.poster_path === null" src="../assets/No-Image-Placeholder.png" alt="">
             
         </div>
 
@@ -112,5 +112,9 @@ li{
         padding: 0 10px;
     }
     
+}
+
+#placeholder{
+    width: 500px;
 }
 </style>

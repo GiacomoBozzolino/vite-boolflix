@@ -50,6 +50,7 @@ import axios from 'axios';
           store.series = response.data.results;
           console.log(response.data.results)     
         });
+        store.searchText=''
       },
     },
     
