@@ -21,7 +21,7 @@ export default {
 <template lang="">
     <div>
         <h2 class="px-3">MOVIES</h2>
-       <div class="watch-slider d-flex m-3">
+       <div class="watch-slider d-flex m-3 py-5">
             <!-- ciclo per i film -->
            <div v-for="(movie, index) in store.movies" :key="index">
                <!-- recupero il file per generare le schede -->

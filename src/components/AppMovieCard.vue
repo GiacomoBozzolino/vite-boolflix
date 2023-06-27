@@ -30,21 +30,24 @@ export default {
 
 <template lang="">
 
-    <div class="cards">
-        <div class="text-center" v-if="mymovie.poster_path !== null">
+    <div class="cards position-relative">
+        <div class="text-center" >
             <!-- aggiungo un controllo se manca l'immagine -->
-            <img :src="`https://image.tmdb.org/t/p/w342/${mymovie.poster_path}`" alt="">
+            <img v-if="mymovie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${mymovie.poster_path}`" alt="">
+            <img v-else="mymovie.poster_path === null" src="../assets/No-Image-Placeholder.svg.png" alt="">
+            
         </div>
-        <div>
-            <ul>
+
+        <div class="overlay position-absolute top-0 end-0">
+            <ul >
                 <li>
-                     <div> 
+                        <div> 
                         <span>Titolo:</span> 
                         {{mymovie.title}}
                     </div>
                 </li>
                 <li>
-                     <div>
+                        <div>
                         <span>Titolo originale:</span>
                         {{mymovie.original_title}}
                     </div>
@@ -63,9 +66,12 @@ export default {
                     </div>
                 </li>
                 <li>
-                    <div>Sinossi: {{mymovie.overview}}</div>
+                    <div>
+                        <span>Sinossi:</span>
+                         {{mymovie.overview}}</div>
                 </li>
             </ul>
+        
         </div>
     </div>
 </template>
@@ -74,17 +80,37 @@ export default {
 .cards{
     width: 350px ;
     margin: 0 1rem;
-    border: 1px solid gray;
+    // border: 1px solid gray;
 }
 .flag{
     width: 30px;
     height: 30px;
 }
 li{
+    padding: 10px 0;
     div{
         span{
         font-weight: bold;
+        font-size: 17px;
         }
     }
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.744);
+  display: flex;
+  align-items: center;
+    &:hover{
+        opacity:1;
+        
+    }
+    ul{
+        padding: 0 10px;
+    }
+    
 }
 </style>
