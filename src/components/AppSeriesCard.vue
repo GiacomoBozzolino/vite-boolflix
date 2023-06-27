@@ -15,7 +15,11 @@ export default {
         }
     },
     methods: {
-        
+        // funzione per trasformare il punteggio medio
+        makeStar(){
+            let point = Math.round(this.myserie.vote_average / 2) 
+            return point
+        }
     },
 }
 </script>
@@ -39,7 +43,10 @@ export default {
             </li>
 
             <li>
-                {{myserie.vote_average}}
+                <!-- stampo le stelle piene -->
+                <div v-for="point in makeStar()" ><i class="fa-solid fa-star"></i></div>
+                <!-- stampo le stelle vuote -->
+                <div v-for=" point in (5 -makeStar())" ><i class="fa-regular fa-star"></i></div>
                 
             </li>
             <li>

@@ -14,8 +14,13 @@ export default {
             
         }
     },
+   
     methods: {
-        
+        // funzione per trasformare il punteggio medio
+        makeStar(){
+            let point = Math.round(this.mymovie.vote_average / 2) 
+            return point
+        }
     },
 }
 </script>
@@ -36,7 +41,10 @@ export default {
                 <lang-flag :iso="mymovie.original_language"/>  
             </li>
             <li>
-                <div>{{mymovie.vote_average}}</div>  
+                <!-- stampo le stelle piene -->
+                <div v-for="point in makeStar()" ><i class="fa-solid fa-star"></i></div>
+                <!-- stampo le stelle vuote -->
+                <div v-for=" point in (5 -makeStar())" ><i class="fa-regular fa-star"></i></div>    
             </li>
             <li>
                 <!-- aggiungo un controllo se manca l'immagine -->
