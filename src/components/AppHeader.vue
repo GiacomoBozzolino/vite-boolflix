@@ -16,7 +16,9 @@ export default {
             <div class="row">
                 <div class="col-12" >
                     <div class="content d-flex justify-content-between align-items-center">
-                        <h1 >BOOLFLIX</h1>
+                        <div>
+                            <img src="../assets/logo.png" alt="">
+                        </div>
                         <div class="d-flex">
                             <input class="form-control mx-2" type="text" id="search" v-model="store.searchText" placeholder=" search" >
                             <button class="btn btn-danger" @click="$emit('search')">Search</button>

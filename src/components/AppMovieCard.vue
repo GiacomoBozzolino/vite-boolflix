@@ -79,7 +79,7 @@ export default {
 <style lang="scss" scoped>
 .cards{
     width: 350px ;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
     // border: 1px solid gray;
 }
 .flag{
