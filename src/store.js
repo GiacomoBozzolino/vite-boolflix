@@ -7,7 +7,7 @@ export const store = reactive({
     movies:[],
     series:[],
     searchText:'',
-    myUrl:'',
-    mySecondUrl:'',
+    // myUrl:'',
+    // mySecondUrl:'',
     
 })

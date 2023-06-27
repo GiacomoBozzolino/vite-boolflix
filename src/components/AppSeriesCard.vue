@@ -23,9 +23,11 @@ export default {
 
 <template lang="">
     <div>
+      
         <ul>
             <li>
                 {{myserie.name}}
+                
             </li>
             
             <li>
@@ -38,7 +40,13 @@ export default {
 
             <li>
                 {{myserie.vote_average}}
-
+                
+            </li>
+            <li>
+                <!-- aggiungo un controllo se manca l'immagine -->
+                <div v-if="myserie.poster_path !== null">
+                    <img :src="`https://image.tmdb.org/t/p/w342/${myserie.poster_path}`" alt="">
+                </div>
             </li>
            
            
@@ -48,6 +56,7 @@ export default {
     </div>
 </template>
 
-<style lang="">
+<style lang="scss">
+@use '../styles/generals.scss' as *
     
 </style>

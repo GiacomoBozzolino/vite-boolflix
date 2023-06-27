@@ -33,12 +33,12 @@ export default {
     </div>
     <div>
         <h2>SERIES</h2>
+       
         <ul>
             <li>
                 <div v-for="(serie, index) in store.series" :key="index">
                     <!-- recupero il file per generare le schede -->
                     <AppSeriesCard :myserie= "serie"/>
-                    
                  </div>
             </li>
         </ul>

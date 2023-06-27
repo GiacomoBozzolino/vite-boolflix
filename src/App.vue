@@ -24,58 +24,33 @@ import axios from 'axios';
       search(url, search){
         if(search !== ''){
              return url += `&query=${search}`
-          } else{
+          } else {
             return url 
           }
          
       },
-      // METODO DI CHIAMATA PER MOVIES
-        getMovie(){
-          let myUrl = store.apiUrl;
-          let mySecondUrl =store.serieUrl;
-          let search = store.searchText;
-          
-        let searchUrl = this.search(myUrl, search);
-        console.log(searchUrl)
+      // METODO DI CHIAMATA PER MOVIES E SERIES
+      getMovie(){
+        let myUrl = store.apiUrl;
+        let mySecondUrl =store.serieUrl;
+        let search = store.searchText;
         
+        // PER MOVIES
+        let searchUrl = this.search(myUrl, search);
+  
         axios.get(searchUrl).then((response) => {
           store.movies = response.data.results;
           console.log(response.data.results)    
         });
 
-          
+        // PER SERIES
         let secondSearchUrl = this.search(mySecondUrl, search);
-    
-          axios.get(secondSearchUrl).then((response) => {
-            store.series = response.data.results;
-            console.log(response.data.results)     
+  
+        axios.get(secondSearchUrl).then((response) => {
+          store.series = response.data.results;
+          console.log(response.data.results)     
         });
       },
-
-
-
-      //CHIUSURA METODO DI CHIAMATA PER series
-      getSerie(){
-        // riprendo l'api principale
-        store.mySecondUrl = store.serieUrl
-        // richiamo la funzione di ricerca
-        if(store.searchText !== ''){
-             store.mySecondUrl += `&query=${store.searchText}`
-              console.log(store.searchText) 
-          }
-        // eseguo la chiamata
-        axios.get(store.mySecondUrl).then((response) => {
-                store.series = response.data.results;
-                console.log(response.data.results)
-              
-            })
-      }
-
-
-
-
-
-
     },
     
   }
@@ -87,6 +62,7 @@ import axios from 'axios';
     
   </div>
 </template>
-<style lang="">
+<style lang="scss">
+@use '../styles/generals.scss' as *
   
 </style>
