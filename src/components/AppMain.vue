@@ -20,16 +20,18 @@ export default {
 
 <template lang="">
     <div>
-        <h2>MOVIES</h2>
-        <ul>
-            <li>
-                <!-- ciclo per i film -->
-                <div v-for="(movie, index) in store.movies" :key="index">
-                    <!-- recupero il file per generare le schede -->
-                    <AppMovieCard :mymovie= "movie"/>
-                </div>
-            </li>
-        </ul>
+        <h2 class="px-3">MOVIES</h2>
+       <div class="watch-slider d-flex m-3">
+            <!-- ciclo per i film -->
+           <div v-for="(movie, index) in store.movies" :key="index">
+               <!-- recupero il file per generare le schede -->
+               <AppMovieCard :mymovie= "movie"/>
+           </div>
+       </div>
+           
+                
+            
+       
     </div>
     <div>
         <h2>SERIES</h2>
@@ -48,6 +50,9 @@ export default {
     
 </template>
 
-<style lang="">
+<style lang="scss" scoped>
+.watch-slider{
+    overflow-x: scroll;
+}
     
 </style>
