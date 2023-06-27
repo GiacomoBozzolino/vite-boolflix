@@ -31,9 +31,10 @@ export default {
 <template lang="">
 
     <div class="cards position-relative">
+       
         <div class="text-center" >
             <!-- aggiungo un controllo se manca l'immagine -->
-            <img v-if="mymovie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${mymovie.poster_path}`" alt="">
+            <img v-if="mymovie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w500/${mymovie.poster_path}`" alt="">
             <img v-else="mymovie.poster_path === null" src="../assets/No-Image-Placeholder.svg.png" alt="">
             
         </div>
@@ -53,14 +54,15 @@ export default {
                     </div>
                 </li>
                 <li>
-                    <div>
-                        <span class="pt-2">Lingua originale:</span> <lang-flag class="flag mb-1" :iso="mymovie.original_language"/>  
+                    <div class="d-flex align-items-center">
+                        <span >Lingua originale: </span> 
+                        <lang-flag class="flag mx-1" :iso="mymovie.original_language"/>  
                     </div>
                 </li>
                 <li >
                     <div class="d-flex justify-content-center">
                         <!-- stampo le stelle piene -->
-                        <div v-for="point in makeStar()" ><i class="fa-solid fa-star"></i></div>
+                        <div v-for="point in makeStar()" ><i class="fa-solid fa-star" style="color: #dfdf00;"></i></div>
                         <!-- stampo le stelle vuote -->
                         <div v-for=" point in (5 -makeStar())" ><i class="fa-regular fa-star"></i></div>    
                     </div>
@@ -68,7 +70,8 @@ export default {
                 <li>
                     <div>
                         <span>Sinossi:</span>
-                         {{mymovie.overview}}</div>
+                         {{mymovie.overview}}
+                    </div>
                 </li>
             </ul>
         
@@ -78,7 +81,7 @@ export default {
 
 <style lang="scss" scoped>
 .cards{
-    width: 350px ;
+    width: 500px ;
     margin: 0 0.5rem;
     // border: 1px solid gray;
 }

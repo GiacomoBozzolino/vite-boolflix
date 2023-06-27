@@ -34,16 +34,14 @@ export default {
        
     </div>
     <div>
-        <h2>SERIES</h2>
-       
-        <ul>
-            <li>
+        <h2 class="px-3">SERIES</h2>
+        <div class="watch-slider d-flex m-3 py-5">
                 <div v-for="(serie, index) in store.series" :key="index">
                     <!-- recupero il file per generare le schede -->
                     <AppSeriesCard :myserie= "serie"/>
                  </div>
-            </li>
-        </ul>
+        </div>  
+        
 
     </div>
    
