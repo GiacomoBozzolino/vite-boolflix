@@ -30,8 +30,8 @@ export default {
     <div class="cards position-relative">
         <div class="text-center" >
             <!-- aggiungo un controllo se manca l'immagine -->
-            <img v-if="myserie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w500/${myserie.poster_path}`" alt="">
-            <img id="placeholder" v-else="myserie.poster_path === null" src="../assets/No-Image-Placeholder.png" alt="">   
+            <img v-if="myserie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w500/${myserie.poster_path}`" :alt="myserie.original_name">
+            <img id="placeholder" v-else="myserie.poster_path === null" src="../assets/No-Image-Placeholder.png" :alt="myserie.original_name">   
         </div>
 
         <div class="overlay position-absolute top-0 end-0">

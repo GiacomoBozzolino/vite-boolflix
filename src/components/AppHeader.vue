@@ -17,7 +17,7 @@ export default {
                 <div class="col-12" >
                     <div class="content d-flex justify-content-between align-items-center">
                         <div>
-                            <img src="../assets/logo.png" alt="">
+                            <img src="../assets/logo.png" alt="Boolflix">
                         </div>
                         <div class="d-flex">
                             <input class="form-control mx-2" type="text" id="search" v-model="store.searchText" placeholder=" search" @keyup.enter="$emit('search')">

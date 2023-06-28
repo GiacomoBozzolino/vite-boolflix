@@ -29,8 +29,8 @@ export default {
     <div class="cards position-relative">
         <div class="text-center" >
             <!-- aggiungo un controllo se manca l'immagine -->
-            <img v-if="mymovie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w500/${mymovie.poster_path}`" alt="">
-            <img id="placeholder" v-else="mymovie.poster_path === null" src="../assets/No-Image-Placeholder.png" alt="">
+            <img v-if="mymovie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w500/${mymovie.poster_path}`" :alt="mymovie.original_title">
+            <img id="placeholder" v-else="mymovie.poster_path === null" src="../assets/No-Image-Placeholder.png" :alt="mymovie.original_title">
             
         </div>
 
