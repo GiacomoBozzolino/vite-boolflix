@@ -25,13 +25,8 @@ export default {
 }
 </script>
 
-
-
-
 <template lang="">
-
     <div class="cards position-relative">
-       
         <div class="text-center" >
             <!-- aggiungo un controllo se manca l'immagine -->
             <img v-if="mymovie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w500/${mymovie.poster_path}`" alt="">
@@ -74,7 +69,6 @@ export default {
                     </div>
                 </li>
             </ul>
-        
         </div>
     </div>
 </template>
@@ -100,23 +94,20 @@ li{
 }
 
 .overlay {
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .7s ease;
-  background-color: rgba(0, 0, 0, 0.744);
-  display: flex;
-  align-items: center;
+
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .7s ease;
+    background-color: rgba(0, 0, 0, 0.744);
+    display: flex;
+    align-items: center;
     &:hover{
-        opacity:1;
-        
-        
+        opacity:1;    
     }
     ul{
         padding: 0 10px;
-    }
-  
-    
+    }  
 }
 
 #placeholder{

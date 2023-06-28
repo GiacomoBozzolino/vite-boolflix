@@ -28,12 +28,10 @@ export default {
 <template lang="">
 
     <div class="cards position-relative">
-       
         <div class="text-center" >
             <!-- aggiungo un controllo se manca l'immagine -->
             <img v-if="myserie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w500/${myserie.poster_path}`" alt="">
-            <img id="placeholder" v-else="myserie.poster_path === null" src="../assets/No-Image-Placeholder.png" alt="">
-            
+            <img id="placeholder" v-else="myserie.poster_path === null" src="../assets/No-Image-Placeholder.png" alt="">   
         </div>
 
         <div class="overlay position-absolute top-0 end-0">
@@ -41,13 +39,13 @@ export default {
                 <li>
                         <div> 
                         <span>Titolo:</span> 
-                        {{myserie.title}}
+                        {{myserie.name}}
                     </div>
                 </li>
                 <li>
                         <div>
                         <span>Titolo originale:</span>
-                        {{myserie.original_title}}
+                        {{myserie.original_name}}
                     </div>
                 </li>
                 <li>
@@ -71,7 +69,6 @@ export default {
                     </div>
                 </li>
             </ul>
-        
         </div>
     </div>
 </template>
@@ -97,16 +94,15 @@ li{
 }
 
 .overlay {
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: rgba(0, 0, 0, 0.744);
-  display: flex;
-  align-items: center;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.744);
+    display: flex;
+    align-items: center;
     &:hover{
-        opacity:1;
-        
+        opacity:1;   
     }
     ul{
         padding: 0 10px;
